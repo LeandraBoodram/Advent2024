@@ -6,19 +6,36 @@ import java.util.Scanner;
 public class Day1 {
     public static void main(String[] args) {
 
-        ArrayList<String> fileData = getFileData("src/Day1Input.txt");
+        ArrayList<String> fileData = getFileData("Day1Input.txt");
         System.out.println(fileData);
         ArrayList<String> one = new ArrayList<String>();
         ArrayList<String> two = new ArrayList<String>();
-        for (int i = 0; i < fileData.size() - 1; i++){
-            for (int j = 0; j < fileData.get(i).length() -1; j++){
-                if ()
+        int i = 0;
+        while (i < fileData.size() -1){
+            for (int j = 0; j <= fileData.get(i).length() - 1; j++){
+                if (fileData.get(i).charAt(j) == ' '){
+                    System.out.println(fileData.get(i).substring(0,j));
+                    i++;
+                    one.add(fileData.get(i).substring(0,j));
+                    System.out.println(one);
+
+                }
+                if (fileData.get(i).charAt(j + 1) == ' '){
+                    //two.add(fileData.get(i).substring(j, ));
+                    // System.out.println(one);
+                }
+
             }
-        }
+            }
+
+           // }
+        //}
 
     }
 
-
+//for (int j = 0; j < fileData.get(i).length() -1; j++){
+//                System.out.println("i: " + fileData.get(i) + " j: " + fileData.get(j));
+//            }
 
     public static ArrayList<String> getFileData(String fileName) {
         ArrayList<String> fileData = new ArrayList<String>();
