@@ -11,19 +11,23 @@ public class Day1 {
         ArrayList<String> one = new ArrayList<String>();
         ArrayList<String> two = new ArrayList<String>();
         int i = 0;
-        while (i < fileData.size() -1){
-            for (int j = 0; j <= fileData.get(i).length() - 1; j++){
+        System.out.println(fileData.get(i).length());
+        while (i != fileData.size()){
+            for (int j = 0; j != fileData.get(i).length(); j++){
                 if (fileData.get(i).charAt(j) == ' '){
                     System.out.println(fileData.get(i).substring(0,j));
-                    i++;
-                    one.add(fileData.get(i).substring(0,j));
+                    one.add(i, fileData.get(i).substring(0, j));
                     System.out.println(one);
+                    i++;
+                    j--;
+                    System.out.println(j);
 
                 }
-                if (fileData.get(i).charAt(j + 1) == ' '){
+               // if (fileData.get(i).charAt(j + 1) == ' '){
                     //two.add(fileData.get(i).substring(j, ));
                     // System.out.println(one);
-                }
+               // }
+                //
 
             }
             }
