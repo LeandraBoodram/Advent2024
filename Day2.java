@@ -12,16 +12,49 @@ public class Day2 {
         for (int i = 0; i < fileData.size(); i++){
             grid.add(i, fileData.get(i).split(" "));
             System.out.println(Arrays.toString(grid.get(i)));
-            for (int j = 0; j < (grid.get(i).length); j++){
-                int firstVal = Integer.parseInt(grid.get(i)[j]);
-                if (j++ < (grid.get(i).length - 1)) {
-                    int secondVal = Integer.parseInt(grid.get(i)[j + 1]);
-                    System.out.println(firstVal);
-                    System.out.println(secondVal);
-                }
-                //if ()
+            boolean increase = isIncreasing(grid.get(i));
+            System.out.println(increase);
+            boolean decrease = isDecrease(grid.get(i));
+            System.out.println(decrease);
+            int difference = checkDifference(grid.get(i));
+            System.out.println(difference);
+//            for (int j = 0; j < (grid.get(i).length); j++){
+//                int firstVal = Integer.parseInt(grid.get(i)[j]);
+//                if (j++ < (grid.get(i).length - 1)) {
+//                    int secondVal = Integer.parseInt(grid.get(i)[j + 1]);
+//                    System.out.println(firstVal);
+//                    System.out.println(secondVal);
+//                }
+//                //if ()
+//            }
+        }
+    }
+
+    public static boolean isIncreasing(String[] numbers) {
+        if (Integer.parseInt(numbers[0]) < Integer.parseInt(numbers[1])){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isDecrease(String[] numbers) {
+        if (Integer.parseInt(numbers[0]) > Integer.parseInt(numbers[1])){
+            return true;
+        }
+        return false;
+    }
+
+    public static int checkDifference(String[] numbers) {
+        if (isIncreasing(numbers)){
+            for (int i = 0; i < numbers.length; i++){
+                System.out.println(numbers[i]);
+                while (i + )
+                    if ((Integer.parseInt(numbers[i + 1]) - Integer.parseInt(numbers[i]) <= 2)){
+                        System.out.println("safe");
+                    }
             }
         }
+        return 0;
     }
 
 
