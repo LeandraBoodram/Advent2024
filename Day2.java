@@ -9,18 +9,28 @@ public class Day2 {
 
         ArrayList<String> fileData = getFileData("Day2Input.txt");
         ArrayList<String[]> grid = new ArrayList<>();
+        int isSafe = 0;
+        int unsafe = 0;
+        int total = 0;
         for (int i = 0; i < fileData.size(); i++){
             grid.add(i, fileData.get(i).split(" "));
             System.out.println(Arrays.toString(grid.get(i)));
             boolean increase = isIncreasing(grid.get(i));
-            System.out.println(increase);
+           // System.out.println(increase);
             boolean decrease = isDecrease(grid.get(i));
-            System.out.println(decrease);
-            int isSafe = 0;
+            //System.out.println(decrease);
+            total++;
             if (checkSafe(grid.get(i)) == 0){
-                isSafe = isSafe + 1;
+                isSafe++;
+            }
+            if (checkSafe(grid.get(i)) > 0){
+                unsafe++;
             }
         }
+        System.out.println("is safe: " + isSafe);
+        System.out.println("not safe: " + unsafe);
+        System.out.println("total: " + total);
+
     }
 
 
@@ -65,7 +75,7 @@ public class Day2 {
             }
 
         }
-        System.out.println("unsafe: ");
+        System.out.println("unsafe: " + unsafe);
         return unsafe;
     }
 
