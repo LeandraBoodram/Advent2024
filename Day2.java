@@ -18,6 +18,8 @@ public class Day2 {
             boolean increase = isIncreasing(grid.get(i));
            // System.out.println(increase);
             boolean decrease = isDecrease(grid.get(i));
+            boolean same = isSame(grid.get(i));
+            System.out.println("same: " + same);
             //System.out.println(decrease);
             total++;
             if (checkSafe(grid.get(i)) == 0){
@@ -26,6 +28,7 @@ public class Day2 {
             if (checkSafe(grid.get(i)) > 0){
                 unsafe++;
             }
+
         }
         System.out.println("is safe: " + isSafe);
         System.out.println("not safe: " + unsafe);
@@ -48,9 +51,24 @@ public class Day2 {
         return false;
     }
 
+    public static boolean isSame(String[] numbers){
+        for (int i = 0; i < numbers.length - 1; i++){
+            for (int j = 0; j < numbers.length - 1; j++) {
+                if ((Integer.parseInt(numbers[i]) == Integer.parseInt(numbers[j])) & (j != i)){
+                    System.out.println(numbers[i] + " " + numbers[j]);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public static int checkSafe(String[] numbers) {
         int unsafe = 0;
-        if (isIncreasing(numbers)){
+        if (isSame(numbers)){
+            unsafe++;
+        }
+         else if (isIncreasing(numbers)){
             for (int i = 0; i < numbers.length; i++){
                 System.out.println(numbers[i]);
                 if (i + 1 <= numbers.length - 1) {
@@ -63,7 +81,7 @@ public class Day2 {
                 }
             }
         }
-        if (isDecrease(numbers)){
+        else if (isDecrease(numbers)){
             for (int i = numbers.length - 1; i != 0; i--){
                 System.out.println(numbers[i]);
                 if ((Integer.parseInt(numbers[i]) - Integer.parseInt(numbers[i - 1]) <= 3) && Integer.parseInt(numbers[i]) - Integer.parseInt(numbers[i - 1]) > -3) {
