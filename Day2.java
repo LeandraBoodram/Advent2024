@@ -9,7 +9,7 @@ public class Day2 {
 
         ArrayList<String> fileData = getFileData("Day2Input.txt");
         ArrayList<String[]> grid = new ArrayList<>();
-        int isSafe = 0;
+        int isSafe = 0; // 287
         int unsafe = 0;
         int total = 0;
         for (int i = 0; i < fileData.size(); i++){
@@ -24,9 +24,11 @@ public class Day2 {
             total++;
             if (checkSafe(grid.get(i)) == 0){
                 isSafe++;
+                //System.out.println("safe - " + Arrays.toString(grid.get(i)));
             }
             if (checkSafe(grid.get(i)) > 0){
                 unsafe++;
+                System.out.println("unsafe - " + Arrays.toString(grid.get(i)));
             }
 
         }
@@ -72,7 +74,7 @@ public class Day2 {
             for (int i = 0; i < numbers.length; i++){
                 System.out.println(numbers[i]);
                 if (i + 1 <= numbers.length - 1) {
-                    if ((Integer.parseInt(numbers[i + 1]) - Integer.parseInt(numbers[i]) <= 3) && Integer.parseInt(numbers[i + 1]) - Integer.parseInt(numbers[i]) > 0) {
+                    if ((Integer.parseInt(numbers[i + 1]) - Integer.parseInt(numbers[i]) <= 3) && (Integer.parseInt(numbers[i + 1]) - Integer.parseInt(numbers[i]) > 0)) {
                         System.out.println("safe" + (Integer.parseInt(numbers[i + 1]) - Integer.parseInt(numbers[i])));
                     }
                     else{
@@ -84,7 +86,7 @@ public class Day2 {
         else if (isDecrease(numbers)){
             for (int i = numbers.length - 1; i != 0; i--){
                 System.out.println(numbers[i]);
-                if ((Integer.parseInt(numbers[i]) - Integer.parseInt(numbers[i - 1]) <= 3) && Integer.parseInt(numbers[i]) - Integer.parseInt(numbers[i - 1]) > -3) {
+                if ((Integer.parseInt(numbers[i]) - Integer.parseInt(numbers[i - 1]) <= 3) && (Integer.parseInt(numbers[i]) - Integer.parseInt(numbers[i - 1]) > -3)) {
                     System.out.println("safe" + (Integer.parseInt(numbers[i]) - Integer.parseInt(numbers[i - 1])));
                 }
                 else{
